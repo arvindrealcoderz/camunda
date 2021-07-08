@@ -19,44 +19,65 @@ embedded:/forms/start-form.html
 		</div>
 		
 		<div class="col-sm-10">
-			<label for="profile" class="col-sm-2 control-label">Hiring Profile</label>
-			<select name="profile" cam-variable-name="profile"
+			<label for="jp" class="col-sm-2 control-label">Job Profile</label>
+			
+			<select name="jp" cam-variable-name="jp"
 				cam-variable-type="String" required class="form-control" >
-				<option  value="Java Developer">Java Developer</option>
-				<option value="Python Developer">Python Developer</option>
-				<option value="Php Developer">Php Developer</option>
+				
+				<option  value="----">Select Job Profile departement	</option>
+				<option  value="IT">IT	</option>
+						<section name="it" cam-variable-name="it"
+							cam-variable-type="String" required class="form-control" >
+								<option  value="Java Developer">-Java Developer-</option>
+								<option value="Python Developer">-Python Developer-</option>
+								<option value="Php Developer">-Php Developer-</option>
+								<option value="android developer ">-Android Developer-</option>
+					</section>
+					
+				
+				<option  value="HR">HR</option>
+						<section name="hr" cam-variable-name="hr"
+							cam-variable-type="String" required class="form-control" >
+								<option  value="Mechanical">-Mechanical or bureaucratic</option>
+								<option value="IT-HR">-IT-HR</option>
+								
+					</section>
+				<option  value="finance">Finance Department	</option>
+						<section  cam-variable-name="finance"
+							cam-variable-type="String" required class="form-control" >
+								<option  value="Accounting dept">-Accounting Dept</option>
+								
+					</section>	
+					
 			
 			</select>
 		</div>
-		<div class="col-sm-10">
-			<label for="type" class="col-sm-2 control-label">Test Type</label>
-			<select name="type" cam-variable-name="type"
-				cam-variable-type="String" required class="form-control" >
-				<option  value="MCQ">MCQ</option>
-				<option value="Coding">Coding</option>
-				<option value="HR">HR</option>
-			
-			</select>
-		</div>
-		<!-- 
-		<div class="col-sm-10">
-			<input type="checkbox" name="mcq" cam-variable-name="mcq"
-				cam-variable-type="String" required class="form-control" />
-		</div> -->
+		
+		<div>
+		
+		
 		
 		 <div class="col-sm-10">
 			<label>MCQ</label>
 			<input type="checkbox" name="mcq" cam-variable-name="mcq"
-				cam-variable-type="String" value="MCQ">
-			<label>Coding Round</label>
-			<input type="checkbox" name="cr" cam-variable-name="cr"
-				cam-variable-type="String" value="coding round">
-			<label>Machine Test</label>
-			<input type="checkbox" name="mt" cam-variable-name="mt"
-				cam-variable-type="String"  value="machine test">
+				cam-variable-type="Boolean" value="MCQ" checked="checked" disabled="disabled">
+			 <label>Group Discusion</label>
+			<input type="checkbox" name="gd" cam-variable-name="gd"
+				cam-variable-type="Boolean" value="Group Discussion">
+			
+			<label>Techincal Round</label>
+			<input type="checkbox" name="tr" cam-variable-name="tr"
+				cam-variable-type="Boolean" value="technical interview " checked="checked" disabled="disabled">
+			<label>Coding</label>
+			<input type="checkbox" cam-variable-name="coding"
+				cam-variable-type="Boolean" value="coding">
+			
+			<label>CEO </label>
+			<input type="checkbox" name="ceo" cam-variable-name="ceo"
+				cam-variable-type="Boolean"  value="CEO" >
 			<label>HR</label>
 			<input type="checkbox"  name="hr"  cam-variable-name="hr"
-				cam-variable-type="String" value="HR"> 
+				cam-variable-type="Boolean" value="HR" checked="checked" disabled="disabled"> 
 		</div>
 	</div>
 

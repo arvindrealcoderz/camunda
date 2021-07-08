@@ -19,22 +19,29 @@ public class ChosingModule implements JavaDelegate {
   public void execute(DelegateExecution execution) throws Exception {
 	  	String name =(String) execution.getVariable("name");
 	    String email =(String) execution.getVariable("email");
-	    String profile =(String) execution.getVariable("profile");
-	    String type =(String) execution.getVariable("type");
-	    String mcq =(String) execution.getVariable("mcq");
-	    String cr =(String) execution.getVariable("cr");
-	    String mt =(String) execution.getVariable("mt");
-	    String hr =(String) execution.getVariable("hr");
-		System.out.println(mcq+"\tcr :"+cr+"\t mt"+mt+"\t hr"+hr);
-	    
-		System.out.println("name :: "+name+"\nemail :: "+email+"\nprofile :: "+profile+"\ntype"+type);
-	    execution.setVariable("result", 5);
-	    
-		/*
-		 * if(name.equalsIgnoreCase("arvind verma") ) message+="success "; else
-		 * message+="failure "; execution.setVariable("result",message);
-		 */
 	   
+	    String jp =(String) execution.getVariable("jp");
+	    String it =(String) execution.getVariable("it");
+	    String finance =(String) execution.getVariable("finance");
+	    
+	    Boolean mcq =(Boolean) execution.getVariable("mcq");
+	    Boolean gd =(Boolean) execution.getVariable("gd");
+	    Boolean ceo =(Boolean) execution.getVariable("ceo");
+	    Boolean coding =(Boolean) execution.getVariable("coding");
+	    Boolean tr =(Boolean) execution.getVariable("tr");
+	    Boolean hr =(Boolean) execution.getVariable("hr");
+	    int count=0;
+	    
+	    if(mcq==true && tr==true && hr==true) {
+	    	if(ceo==true)
+	    		execution.setVariable("result",4);
+	    	else if(gd==true && coding==true )
+	    		execution.setVariable("result",5);
+	    	else
+	    		execution.setVariable("result",3);
+	    }
+	    	
+	    
 	   LOGGER.info("\n\n  ... LoggerDelegate invoked by "
             + "activtyName='" + execution.getCurrentActivityName() + "'"
             + ", activtyId=" + execution.getCurrentActivityId()

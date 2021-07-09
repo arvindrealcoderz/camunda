@@ -16,7 +16,7 @@ public class ChosingModule implements JavaDelegate {
  
   private final Logger LOGGER = Logger.getLogger(ChosingModule.class.getName());
   static int count=0;
-  
+  String choice="";
   public void execute(DelegateExecution execution) throws Exception {
 	  	String name =(String) execution.getVariable("name");
 	    String email =(String) execution.getVariable("email");
@@ -33,45 +33,66 @@ public class ChosingModule implements JavaDelegate {
 	    String tr =(String) execution.getVariable("tr");
 	    String fo =(String) execution.getVariable("fo");
 	    String ft =(String) execution.getVariable("ft");
-	    System.out.println("FR"+fr+"SR:: "+sr+"Tr "+tr+"fo "+fo+"ft"+ft);
-
+	    
 	    if((fr.length()!=0 && fr!=null))
-	    	if(fr.equalsIgnoreCase("mcq")|| fr.equalsIgnoreCase("gd") || fr.equalsIgnoreCase("ti") || fr.equalsIgnoreCase("mcr")|| fr.equalsIgnoreCase("hr"))
+	    	if(fr.equalsIgnoreCase("mcq")|| fr.equalsIgnoreCase("gd") || fr.equalsIgnoreCase("ti") || fr.equalsIgnoreCase("mcr")|| fr.equalsIgnoreCase("hr")) {
 	    		count++;
+	    		choice=choice+" "+fr;  
+	    	}
 	    	else
 	    		System.out.println("First Round Selection "+fr);
 	    
 	     if((sr.length()!=0 && sr!=null))
-	    	if(sr.equalsIgnoreCase("mcq")|| sr.equalsIgnoreCase("gd") || sr.equalsIgnoreCase("ti") || sr.equalsIgnoreCase("mcr")|| sr.equalsIgnoreCase("hr"))
+	    	if(sr.equalsIgnoreCase("mcq")|| sr.equalsIgnoreCase("gd") || sr.equalsIgnoreCase("ti") || sr.equalsIgnoreCase("mcr")|| sr.equalsIgnoreCase("hr")) {
 	    		count++;
+	    		choice=choice+" "+sr;  
+	    	} 
 	    	else
 	    		System.out.println("Secound Round Selection "+sr);
 	    
 	    if((tr.length()!=0 && tr!=null))
-	    	if(tr.equalsIgnoreCase("mcq")|| tr.equalsIgnoreCase("gd") || tr.equalsIgnoreCase("ti") || tr.equalsIgnoreCase("mcr")|| tr.equalsIgnoreCase("hr"))
+	    	if(tr.equalsIgnoreCase("mcq")|| tr.equalsIgnoreCase("gd") || tr.equalsIgnoreCase("ti") || tr.equalsIgnoreCase("mcr")|| tr.equalsIgnoreCase("hr")) {
 	    		count++;
+	    		choice=choice+" "+tr;  
+	    	}
 	    	else
 	    		System.out.println("Thired Round Selection "+tr);
 	    
 	    if((fo.length()!=0 && fo!=null))
-	    	if(fo.equalsIgnoreCase("mcq")|| fo.equalsIgnoreCase("gd") || fo.equalsIgnoreCase("ti") || fo.equalsIgnoreCase("mcr")|| fo.equalsIgnoreCase("hr"))
+	    	if(fo.equalsIgnoreCase("mcq")|| fo.equalsIgnoreCase("gd") || fo.equalsIgnoreCase("ti") || fo.equalsIgnoreCase("mcr")|| fo.equalsIgnoreCase("hr")) {
 	    		count++;
+	    		choice=choice+" "+fo;  	
+	    	}
 	    	else
 	    		System.out.println("Fourth Round Selection "+fo);
 	    if((ft.length()!=0 && ft!=null))
-	    	if(ft.equalsIgnoreCase("mcq")|| ft.equalsIgnoreCase("gd") || ft.equalsIgnoreCase("ti") || ft.equalsIgnoreCase("mcr")|| ft.equalsIgnoreCase("hr"))
+	    	if(ft.equalsIgnoreCase("mcq")|| ft.equalsIgnoreCase("gd") || ft.equalsIgnoreCase("ti") || ft.equalsIgnoreCase("mcr")|| ft.equalsIgnoreCase("hr")) {
 	    		count++;
+	    		choice=choice+" "+ft;  	
+	    	}
 	    	else
 	    		System.out.println("Fith Round Selection "+ft);
 	    else
 	    	System.out.println("-------------Result");
 	    
-	    System.out.println("==============="+count);
 	    if(count<=2)
 		    execution.setVariable("result",3);
 	    else
-	    execution.setVariable("result",count);
+	    	execution.setVariable("result",count);
 	    
+	    System.out.println("============choice========="+choice);
+	    
+	    execution.setVariable("choice",choice);
+	    count=0;
+	    
+	    /*
+	    execution.setVariable("fr",fr);
+	    execution.setVariable("sr",sr);
+	    execution.setVariable("tr",tr);
+	    execution.setVariable("fo",fo);
+	    execution.setVariable("ft",ft);
+	    
+	    */
 		/*
 		 * if(mcq==true && tr==true && hr==true) { if(ceo==true)
 		 * execution.setVariable("result",4); else if(gd==true && coding==true )

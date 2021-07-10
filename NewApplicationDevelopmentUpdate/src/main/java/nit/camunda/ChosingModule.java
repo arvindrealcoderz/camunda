@@ -80,6 +80,7 @@ public class ChosingModule implements JavaDelegate {
 	    else
 	    	execution.setVariable("result",count);
 	    
+	    System.out.println(fr+"\t"+sr+"\t"+tr+"\t"+fo+"\t"+ft);
 	    System.out.println("============choice========="+choice);
 	    
 	    execution.setVariable("choice",choice);

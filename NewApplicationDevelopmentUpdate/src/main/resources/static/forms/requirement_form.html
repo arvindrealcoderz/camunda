@@ -3,23 +3,31 @@ You can use this form through Camunda Tasklist
 by setting the formKey of a BPMN Start Event to:
 embedded:/forms/start-form.html
 -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="w3-container w3-light-grey">
+<div class="w3-container w3-green w3-center">
+  <h2>User Requirement Form </h2>
+</div>
 
-<form class="form-horizontal" role="form">
-	<div class="form-group">
-		<label for="name" class="col-sm-2 control-label">User Name</label>
-		<div class="col-sm-10">
+<div  class="w3-margin-top">
+</div>
+
+<form role="form">
+	<div class="w3-container ">
+		<div class="w3-input w3-border w3-round-xlarge w3-margin-top">
+		<label >User Name</label>
 			<input type="text" name="name" cam-variable-name="name"
 				cam-variable-type="String" required class="form-control" />
 		</div>
 
-		<div class="col-sm-10">
-			<label for="email" class="col-sm-2 control-label">User Email</label>
+		<div class="w3-input w3-border w3-round-xlarge w3-margin-top">
+			<label>User Email</label>
 			<input type="text" name="email" cam-variable-name="email"
 				cam-variable-type="String" required class="form-control" />
 		</div>
 
-		<div class="col-sm-10">
-			<label for="jp" class="col-sm-2 control-label">Job Profile</label> <select
+		<div class="w3-input w3-border w3-round-xlarge w3-margin-top">
+			<label >Job Profile</label> <select
 				name="jp" cam-variable-name="jp" cam-variable-type="String" required
 				class="form-control">
 				<option value="----">Select Job Profile departement</option>
@@ -47,8 +55,8 @@ embedded:/forms/start-form.html
 			</select>
 		</div>
 
-		<div class="col-sm-10">
-			<label for="fr" class="col-sm-2 control-label">First Round</label> <select
+		<div class="w3-input w3-border w3-round-xlarge w3-margin-top w3-dropdown-hover">
+			<label >First Round</label> <select
 				cam-variable-name="fr" cam-variable-type="String" required
 				class="form-control">
 				<option value="NON">----Select Option----</option>
@@ -60,8 +68,8 @@ embedded:/forms/start-form.html
 			</select>
 		</div>
 
-		<div class="col-sm-10">
-			<label for="sr" class="col-sm-2 control-label">Second Round</label> <select
+		<div class="w3-input w3-border w3-round-xlarge w3-margin-top w3-dropdown-hover">
+			<label >Second Round</label> <select
 				cam-variable-name="sr" cam-variable-type="String" required
 				class="form-control">
 				<option value="0">----Select Option----</option>
@@ -73,8 +81,8 @@ embedded:/forms/start-form.html
 			</select>
 		</div>
 
-		<div class="col-sm-10">
-			<label for="tr" class="col-sm-2 control-label">Third Round</label> <select
+		<div class="w3-input w3-border w3-round-xlarge w3-margin-top w3-dropdown-hover">
+			<label >Third Round</label> <select
 				cam-variable-name="tr" cam-variable-type="String" required
 				class="form-control">
 				<option value="0">----Select Option----</option>
@@ -86,8 +94,8 @@ embedded:/forms/start-form.html
 			</select>
 		</div>
 
-		<div class="col-sm-10">
-			<label for="fo" class="col-sm-2 control-label">Fourth Round</label> <select
+		<div class="w3-input w3-border w3-round-xlarge w3-margin-top w3-dropdown-hover">
+			<label >Fourth Round</label> <select
 				cam-variable-name="fo" cam-variable-type="String" required
 				class="form-control">
 				<option value="0">----Select Option----</option>
@@ -99,8 +107,8 @@ embedded:/forms/start-form.html
 			</select>
 		</div>
 
-		<div class="col-sm-10">
-			<label for="ft" class="col-sm-2 control-label">Fifth Round</label> <select
+		<div class="w3-input w3-border w3-round-xlarge w3-margin-top w3-dropdown-hover">
+			<label >Fifth Round</label> <select
 				cam-variable-name="ft" cam-variable-type="String" required
 				class="form-control">
 				<option value="0">----Select Option----</option>
@@ -143,3 +151,4 @@ embedded:/forms/start-form.html
     }]);
   </script>
 </form>
+</div>

@@ -1,0 +1,19 @@
+# Test configuration using spring-boot
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    password: Arvind
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: scott
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+camunda.bpm:
+  job-execution.enabled: false
+  id-generator: simple
+
+#spring.datasource:
+# url: jdbc:h2:mem:camunda-spring-boot-test;DB_CLOSE_ON_EXIT=false

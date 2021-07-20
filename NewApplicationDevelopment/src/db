@@ -1,0 +1,8 @@
+CREATE TABLE `camunda`.`corona_registration` (
+  `regNo` INT NOT NULL AUTO_INCREMENT,
+  `pname` VARCHAR(45) NOT NULL,
+  `paddr` VARCHAR(45) NULL,
+  `page` VARCHAR(45) NULL,
+  `pmobile` VARCHAR(14) NULL,
+  PRIMARY KEY (`regNo`, `pname`));
+  

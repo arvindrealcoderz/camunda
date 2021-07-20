@@ -1,0 +1,46 @@
+<!--
+You can use this form through Camunda Tasklist
+by setting the formKey of a BPMN Start Event to:
+embedded:/forms/start-form.html
+-->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="w3-container w3-light-grey">
+<div class="w3-container w3-green w3-center">
+  <h2>Corona Patient Registration Form</h2>
+</div>
+<div  class="w3-margin-top">
+<div  class="w3-margin-top">
+
+</div>
+<form  role="form">
+		<div class="w3-container">
+		<div class="w3-input w3-border w3-round-xlarge w3-margin-top">
+		<label >Patient Name</label>
+			<input type="text" cam-variable-name="name"
+				cam-variable-type="String" required class="form-control" />
+		</div>
+		
+		<div class="w3-input w3-border w3-round-xlarge w3-margin-top">
+		<label >Patient Address</label>
+			<input type="text" cam-variable-name="addr"
+				cam-variable-type="String" required class="form-control" />
+		</div>
+		
+		<div class="w3-input w3-border w3-round-xlarge w3-margin-top">
+		<label >Patient Age</label>
+			<input type="text"  cam-variable-name="age"
+				cam-variable-type="String" required class="form-control" />
+		</div>
+		
+		<div class="w3-input w3-border w3-round-xlarge w3-margin-top">
+		<label >Patient Mobile No</label>
+			<input type="text" cam-variable-name="mobile"
+				cam-variable-type="String" required class="form-control"  />
+		</div>
+		
+		
+	</div>
+
+</form>
+</div>
+</div>

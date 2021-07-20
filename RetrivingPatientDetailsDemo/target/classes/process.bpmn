@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.8.1">
+  <bpmn:process id="LoginAndRegistrationOnCamunda" name="RetriveData11" isExecutable="true">
+    <bpmn:startEvent id="StartEvent" name="Request&#10;received">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="name" label="Patent Name" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:outgoing>Flow_1tgvahe</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="RegistrationService" name="Log to console" camunda:delegateExpression="${reg}">
+      <bpmn:incoming>Flow_0ckaytp</bpmn:incoming>
+      <bpmn:outgoing>Flow_1fpel7u</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="EndEvent" name="Request&#10;processed">
+      <bpmn:incoming>Flow_1ovzd2h</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1fpel7u" sourceRef="RegistrationService" targetRef="RegistrationSuccess" />
+    <bpmn:serviceTask id="CheckingLogin" camunda:delegateExpression="${login}">
+      <bpmn:incoming>Flow_1b6iv85</bpmn:incoming>
+      <bpmn:outgoing>Flow_02xfmr4</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_1idqwgv">
+      <bpmn:incoming>Flow_02xfmr4</bpmn:incoming>
+      <bpmn:outgoing>Flow_0z172cx</bpmn:outgoing>
+      <bpmn:outgoing>Flow_16zz0jd</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_02xfmr4" sourceRef="CheckingLogin" targetRef="Gateway_1idqwgv" />
+    <bpmn:sequenceFlow id="Flow_0z172cx" sourceRef="Gateway_1idqwgv" targetRef="CoronaPatientRegistration">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{logresult==0}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:userTask id="CoronaPatientRegistration" camunda:formKey="embedded:/forms/registration.html">
+      <bpmn:incoming>Flow_0z172cx</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ckaytp</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0ckaytp" sourceRef="CoronaPatientRegistration" targetRef="RegistrationService" />
+    <bpmn:sequenceFlow id="Flow_16zz0jd" sourceRef="Gateway_1idqwgv" targetRef="Activity_0ffkci3">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{logresult!=0}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:userTask id="Activity_0ffkci3" name="login Success">
+      <bpmn:incoming>Flow_16zz0jd</bpmn:incoming>
+    </bpmn:userTask>
+    <bpmn:userTask id="RegistrationSuccess" name="Registration Success">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="result" label="Login Result" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1fpel7u</bpmn:incoming>
+      <bpmn:outgoing>Flow_1b6iv85</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1b6iv85" sourceRef="RegistrationSuccess" targetRef="CheckingLogin" />
+    <bpmn:serviceTask id="Activity_0ltv69l" camunda:delegateExpression="${retrive}">
+      <bpmn:incoming>Flow_1tgvahe</bpmn:incoming>
+      <bpmn:outgoing>Flow_0zpq1e1</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0zpq1e1" sourceRef="Activity_0ltv69l" targetRef="Activity_11kzq5x" />
+    <bpmn:sequenceFlow id="Flow_1ovzd2h" sourceRef="Activity_11kzq5x" targetRef="EndEvent" />
+    <bpmn:userTask id="Activity_11kzq5x" camunda:formKey="app:forms/report.html">
+      <bpmn:incoming>Flow_0zpq1e1</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ovzd2h</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1tgvahe" sourceRef="StartEvent" targetRef="Activity_0ltv69l" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="LoginAndRegistrationOnCamunda">
+      <bpmndi:BPMNEdge id="Flow_1ovzd2h_di" bpmnElement="Flow_1ovzd2h">
+        <di:waypoint x="940" y="260" />
+        <di:waypoint x="1122" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0zpq1e1_di" bpmnElement="Flow_0zpq1e1">
+        <di:waypoint x="780" y="260" />
+        <di:waypoint x="840" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1b6iv85_di" bpmnElement="Flow_1b6iv85">
+        <di:waypoint x="800" y="170" />
+        <di:waypoint x="800" y="200" />
+        <di:waypoint x="310" y="200" />
+        <di:waypoint x="310" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_16zz0jd_di" bpmnElement="Flow_16zz0jd">
+        <di:waypoint x="465" y="260" />
+        <di:waypoint x="520" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ckaytp_di" bpmnElement="Flow_0ckaytp">
+        <di:waypoint x="490" y="120" />
+        <di:waypoint x="545" y="120" />
+        <di:waypoint x="545" y="130" />
+        <di:waypoint x="600" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0z172cx_di" bpmnElement="Flow_0z172cx">
+        <di:waypoint x="440" y="235" />
+        <di:waypoint x="440" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_02xfmr4_di" bpmnElement="Flow_02xfmr4">
+        <di:waypoint x="360" y="260" />
+        <di:waypoint x="415" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1fpel7u_di" bpmnElement="Flow_1fpel7u">
+        <di:waypoint x="700" y="130" />
+        <di:waypoint x="780" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1tgvahe_di" bpmnElement="Flow_1tgvahe">
+        <di:waypoint x="228" y="340" />
+        <di:waypoint x="720" y="340" />
+        <di:waypoint x="720" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_16vok30_di" bpmnElement="RegistrationService">
+        <dc:Bounds x="600" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0fkea3f_di" bpmnElement="EndEvent">
+        <dc:Bounds x="1122" y="242" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1115" y="278" width="52" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1xljeai_di" bpmnElement="CheckingLogin">
+        <dc:Bounds x="260" y="220" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1idqwgv_di" bpmnElement="Gateway_1idqwgv" isMarkerVisible="true">
+        <dc:Bounds x="415" y="235" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1gjoemo_di" bpmnElement="CoronaPatientRegistration">
+        <dc:Bounds x="390" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_055db1u_di" bpmnElement="Activity_0ffkci3">
+        <dc:Bounds x="520" y="220" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1osbk9r_di" bpmnElement="RegistrationSuccess">
+        <dc:Bounds x="780" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1llt0p4_di" bpmnElement="Activity_0ltv69l">
+        <dc:Bounds x="680" y="220" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1itsrt0_di" bpmnElement="Activity_11kzq5x">
+        <dc:Bounds x="840" y="220" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent">
+        <dc:Bounds x="192" y="322" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="218" y="446" width="42" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

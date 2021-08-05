@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Taking_Decision1" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.8.1">
+  <decision id="Taking_Decision" name="Decision 1">
+    <decisionTable id="DecisionTable_0w48ekm" hitPolicy="FIRST">
+      <input id="Input_1" camunda:inputVariable="profile">
+        <inputExpression id="InputExpression_1" typeRef="string" expressionLanguage="feel">
+          <text>profile</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_12wl5dq" label="Day" camunda:inputVariable="day">
+        <inputExpression id="LiteralExpression_1iu5bxn" typeRef="string">
+          <text>day</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1otcici" camunda:inputVariable="inter">
+        <inputExpression id="LiteralExpression_09nheht" typeRef="long">
+          <text>no_of_interviewers</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="InterviewerName" name="interviewerName" typeRef="string" />
+      <rule id="DecisionRule_02bvga3">
+        <inputEntry id="UnaryTests_14gq5s8">
+          <text>"java","php"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i4javc">
+          <text>"Mon","Tue","Wed"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0n5vdfw">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04h2e5b">
+          <text>"Naveen Sir"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1rzryso">
+        <inputEntry id="UnaryTests_1woje1j">
+          <text>"java","php"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1i8mhay">
+          <text>"Thurs","Fri","Sat"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ziudkh">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0q124zh">
+          <text>"Ravi Sir"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0g5chph">
+        <inputEntry id="UnaryTests_0wc5mle">
+          <text>"python","android"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02mfcng">
+          <text>"Mon","Tue","Wed"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fd1ylv">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bnyrei">
+          <text>"Aditiya Sir"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06u9re0">
+        <inputEntry id="UnaryTests_0eqdwfq">
+          <text>"python","android"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eo9l6g">
+          <text>"Thurs","Fri","Sat"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sn61e7">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0h74pey">
+          <text>"Ravi Sir"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1j9qeb1">
+        <inputEntry id="UnaryTests_0fb77e0">
+          <text>"python","android"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v5ctfn">
+          <text>"Mon","Tue","Wed"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qquha4">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11ghs2q">
+          <text>["Ravi Sir","Naveen Sir"]</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0bdcwxx">
+        <inputEntry id="UnaryTests_1b6gd33">
+          <text>"python","android"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cv1n7j">
+          <text>"Thurs","Fri","Sat"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05d946u">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1b2aw6w">
+          <text>["Aditiya Sir","Ravi Sir"]</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1hi23ed">
+        <inputEntry id="UnaryTests_1i1taek">
+          <text>"java","php"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cton26">
+          <text>"Mon","Tue","Wed"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16lxpym">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0f59r4u">
+          <text>["Ravi Sir","Naveen Sir"]</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15m7xg9">
+        <inputEntry id="UnaryTests_1mn09ed">
+          <text>"java","php"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ym1wg0">
+          <text>"Thurs","Fri","Sat"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06szx7g">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ajb9kk">
+          <text>["Naveen Sir","Aditiya Sir"]</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Taking_Decision">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
